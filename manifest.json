@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "GenAI Pseudonymizer",
+  "version": "0.1.0",
+  "description": "프롬프트는 가명화하여 전송하고 응답은 원복하여 표시합니다.",
+  "permissions": ["storage", "scripting"],
+  "host_permissions": [
+    "https://api.openai.com/*",
+    "https://api.anthropic.com/*",
+    "https://chat.openai.com/*",
+    "https://chat.openai.com/backend-api/*",
+    "https://chatgpt.com/*",
+    "https://chatgpt.com/backend-api/*",
+    "http://127.0.0.1:11434/*"
+  ],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"],
+    "run_at": "document_start"
+  }],
+  "web_accessible_resources": [{
+    "resources": ["injected.js"],
+    "matches": ["<all_urls>"]
+  }],
+  "action": { "default_popup": "popup.html" },
+  "options_ui": { "page": "options.html", "open_in_tab": true }
+}

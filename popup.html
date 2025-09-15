@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Pseudonymizer 설정</title>
+  <style>
+    body{min-width:360px;padding:12px;font-family:sans-serif}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+    textarea{width:100%;height:120px;resize:vertical;font-family:ui-monospace,Consolas,monospace}
+    .muted{color:#666;font-size:12px}
+    .toolbar{display:flex;gap:6px;align-items:center;margin-top:8px}
+    .btn{padding:6px 10px;border:1px solid #ccc;border-radius:6px;background:#f7f7f7;cursor:pointer}
+    .btn:active{transform:translateY(1px)}
+    .hdr{display:flex;justify-content:space-between;align-items:center}
+  </style>
+</head>
+<body>
+  <div class="hdr">
+    <b>프롬프트 가명화</b>
+    <small class="muted" id="ts"></small>
+  </div>
+
+  <div class="toolbar">
+    <button class="btn" id="clear">기록 지우기</button>
+    <button class="btn" id="copyOrig">원본 복사</button>
+    <button class="btn" id="copyPseudo">가명화본 복사</button>
+  </div>
+
+  <div class="row">
+    <div>
+      <div><b>원본 프롬프트</b></div>
+      <textarea id="orig" readonly placeholder="아직 가로챈 프롬프트가 없습니다."></textarea>
+    </div>
+    <div>
+      <div><b>가명화된 프롬프트(모델로 전송됨)</b></div>
+      <textarea id="pseudo" readonly></textarea>
+    </div>
+  </div>
+
+  <div style="margin-top:6px" class="muted">
+    URL: <span id="u">-</span>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

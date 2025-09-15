@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+  <meta charset="utf-8">
+  <title>옵션</title>
+  <body style="font-family:sans-serif;padding:16px">
+    <h1>GenAI Pseudonymizer 옵션</h1>
+    <label>
+      <input type="checkbox" id="enabled">
+      가명화 활성화
+    </label>
+    <div style="margin-top:8px">
+      <div>Ollama 모델</div>
+      <input id="model" placeholder="qwen2.5:7b-instruct" style="width:280px">
+    </div>
+    <button id="save" style="margin-top:10px">저장</button>
+    <script>
+      chrome.storage.local.get(['enabled','model'], v => {
+        document.getElementById('enabled').checked = v.enabled ?? true;
+        document.getElementById('model').value = v.model ?? 'qwen2.5:7b-instruct';
+      });
+      document.getElementById('save').onclick = async () => {
+        const enabled = document.getElementById('enabled').checked;
+        const model = document.getElementById('model').value.trim();
+        await chrome.storage.local.set({enabled, model});
+        alert('저장됨');
+      };
+    </script>
+  </body>
+</html>
