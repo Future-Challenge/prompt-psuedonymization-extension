@@ -1,0 +1,81 @@
+{
+  "logs": [
+    {
+      "time": "2025-09-19 22:17:51",
+      "remote_addr": "127.0.0.1",
+      "path": "/pseudonymize",
+      "input": {
+        "id": "ca89dd2544a7534eb550",
+        "prompt": "안녕하세요 오현수입니다."
+      },
+      "detection": {
+        "contains_pii": true,
+        "items": [
+          {
+            "type": "이름",
+            "value": "오현수",
+            "start": 6,
+            "end": 10,
+            "token": "김철수"
+          }
+        ]
+      }
+    },
+    {
+      "time": "2025-09-19 22:28:38",
+      "remote_addr": "127.0.0.1",
+      "path": "/pseudonymize",
+      "input": {
+        "id": "3d7c4578ae4eca61df0b",
+        "prompt": "안녕하세요 오현수입니다. 전화번호는 010-3161-0000이구요"
+      },
+      "detection": {
+        "contains_pii": true,
+        "items": [
+          {
+            "type": "이름",
+            "value": "오현수",
+            "start": 6,
+            "end": 9,
+            "token": "이영희"
+          },
+          {
+            "type": "전화번호",
+            "value": "010-3161-0000",
+            "start": 15,
+            "end": 28,
+            "token": "010-1111-2222"
+          }
+        ]
+      }
+    },
+    {
+      "time": "2025-09-19 22:33:47",
+      "remote_addr": "127.0.0.1",
+      "path": "/pseudonymize",
+      "input": {
+        "id": "745d95376c57c09e6ec4",
+        "prompt": "안녕하세요 오현수입니다. 전화번호는 010-2312-0000이구요."
+      },
+      "detection": {
+        "contains_pii": true,
+        "items": [
+          {
+            "type": "이름",
+            "value": "오현수",
+            "start": 6,
+            "end": 9,
+            "token": "홍길동"
+          },
+          {
+            "type": "전화번호",
+            "value": "010-2312-0000",
+            "start": 15,
+            "end": 28,
+            "token": "010-1111-2222"
+          }
+        ]
+      }
+    }
+  ]
+}
